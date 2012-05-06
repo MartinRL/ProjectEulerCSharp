@@ -10,7 +10,7 @@ namespace ProjectEulerCSharp.Sequences
 
         public FibonacciSequence()
         {
-            sequence = 1.To(int.MaxValue).Select(CalculateFibonacci);
+            sequence = 1.ToMax().Select(CalculateFibonacci);
         }
 
         private int CalculateFibonacci(int index)

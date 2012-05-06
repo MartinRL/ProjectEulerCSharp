@@ -5,6 +5,11 @@ namespace ProjectEulerCSharp
 {
     public static class Extensions
     {
+        public static IEnumerable<int> ToMax(this int @this)
+        {
+            return @this.To(int.MaxValue);
+        }
+
         public static IEnumerable<int> To(this int @this, int to)
         {
             return Enumerable.Range(@this, to - @this + 1);

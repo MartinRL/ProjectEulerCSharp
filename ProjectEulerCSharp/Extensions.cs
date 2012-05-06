@@ -13,8 +13,6 @@ namespace ProjectEulerCSharp
 
         public static IEnumerable<long> To(this long @this, long to)
         {
-            @this++;
-
             while (@this >= to)
                 yield return @this--;
         }

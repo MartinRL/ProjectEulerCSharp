@@ -2,7 +2,6 @@ using System;
 using FluentAssertions;
 using System.Linq;
 using ProjectEulerCSharp.Sequences;
-using Xunit;
 using Xunit.Extensions;
 
 namespace ProjectEulerCSharp

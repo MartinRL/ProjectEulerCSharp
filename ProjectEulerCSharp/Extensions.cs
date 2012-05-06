@@ -10,6 +10,11 @@ namespace ProjectEulerCSharp
             return Enumerable.Range(@this, to - @this + 1);
         }
 
+        public static bool IsEven( this int @this )
+        {
+            return @this.IsEvenlyDivisibleBy(2);
+        }
+
         public static bool IsEvenlyDivisibleBy(this int @this, int divisor)
         {
             return @this % divisor == 0;

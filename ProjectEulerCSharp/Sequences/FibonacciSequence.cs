@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace ProjectEulerCSharp.Sequences
 {
+    /// <summary>
+    /// Spec: http://www.wolframalpha.com/input/?i=Fibonacci&a=*C.Fibonacci-_*Function-
+    /// </summary>
     public class FibonacciSequence : IEnumerable<int>
     {
         private readonly IEnumerable<int> sequence;

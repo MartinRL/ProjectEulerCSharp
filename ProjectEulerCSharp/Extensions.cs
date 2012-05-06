@@ -24,5 +24,10 @@ namespace ProjectEulerCSharp
         {
             return @this % divisor == 0;
         }
+
+        public static IEnumerable<int> TakeWhileLessThan(this IEnumerable<int> @this, int upperBound)
+        {
+            return @this.TakeWhile(term => term <= upperBound);
+        }
     }
 }

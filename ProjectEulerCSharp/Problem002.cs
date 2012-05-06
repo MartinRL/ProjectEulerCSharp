@@ -1,6 +1,6 @@
 using System;
-using FluentAssertions;
 using System.Linq;
+using FluentAssertions;
 using ProjectEulerCSharp.Sequences;
 using Xunit.Extensions;
 
@@ -14,7 +14,7 @@ namespace ProjectEulerCSharp
         public void should_find_4613732(int upperBound, int expectedSum)
         {
             var actualSum = new FibonacciSequence()
-                .TakeWhile(term => term <= upperBound)
+                .TakeWhileLessThan(upperBound)
                 .Where(term => term.IsEven())
                 .Sum();
 

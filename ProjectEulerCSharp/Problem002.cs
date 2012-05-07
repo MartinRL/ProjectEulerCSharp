@@ -11,7 +11,7 @@ namespace ProjectEulerCSharp
         [Theory]
         [InlineData(89, 44)]
         [InlineData(4000000, 4613732)]
-        public void should_find_4613732(int upperBound, int expectedSum)
+        public void should_find_sum_of_even_valued_terms(int upperBound, int expectedSum)
         {
             var actualSum = new FibonacciSequence()
                 .TakeWhileLessThan(upperBound)

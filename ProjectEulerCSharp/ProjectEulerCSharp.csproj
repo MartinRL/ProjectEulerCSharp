@@ -52,6 +52,7 @@
     <Compile Include="NCrunchDummyFact.cs" />
     <Compile Include="Problem003.cs" />
     <Compile Include="Problem004.cs" />
+    <Compile Include="Problem005.cs" />
     <Compile Include="Sequences\FibonacciSequence.cs" />
     <Compile Include="Problem001.cs" />
     <Compile Include="Problem002.cs" />

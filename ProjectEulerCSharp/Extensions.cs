@@ -73,5 +73,10 @@ namespace ProjectEulerCSharp
         {
             return (long) Math.Sqrt(@this);
         }
+
+        public static int Sqr(this int @this)
+        {
+            return @this * @this;
+        }
     }
 }

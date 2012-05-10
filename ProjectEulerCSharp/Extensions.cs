@@ -63,7 +63,8 @@ namespace ProjectEulerCSharp
             var maxFactor = @this.CalculateMaxFactor();
             for (var t = 3; t <= maxFactor; t = t + 2)
             {
-                if (@this % t == 0) return false;
+                if (@this.IsEvenlyDivisibleBy(t))
+                    return false;
             }
 
             return @this != 1;
@@ -85,7 +86,8 @@ namespace ProjectEulerCSharp
             var maxFactor = @this.CalculateMaxFactor();
             for (var t = 3; t <= maxFactor; t = t + 2)
             {
-                if (@this % t == 0) return false;
+                if (@this.IsEvenlyDivisibleBy(t))
+                    return false;
             }
 
             return @this != 1;

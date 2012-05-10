@@ -74,6 +74,28 @@ namespace ProjectEulerCSharp
             return (long) Math.Sqrt(@this);
         }
 
+        public static bool IsPrime(this int @this)
+        {
+            if (@this == 2)
+                return true;
+
+            if (@this.IsEven())
+                return false;
+
+            var maxFactor = @this.CalculateMaxFactor();
+            for (var t = 3; t <= maxFactor; t = t + 2)
+            {
+                if (@this % t == 0) return false;
+            }
+
+            return @this != 1;
+        }
+
+        public static int CalculateMaxFactor(this int @this)
+        {
+            return (int) Math.Sqrt(@this);
+        }
+
         public static int Sqr(this int @this)
         {
             return @this * @this;

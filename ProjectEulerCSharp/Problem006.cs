@@ -13,9 +13,9 @@ namespace ProjectEulerCSharp
         {
             var naturalNumbers = 1.To(upperBound);
 
-            var sumOfTheSquares = naturalNumbers.Select(t => t.Sqr()).Sum();
-
             var squareOfTheSums = naturalNumbers.Sum().Sqr();
+
+            var sumOfTheSquares = naturalNumbers.Select(t => t.Sqr()).Sum();
 
             var actual = squareOfTheSums - sumOfTheSquares;
 

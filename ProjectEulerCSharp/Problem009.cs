@@ -21,9 +21,7 @@ namespace ProjectEulerCSharp
 
         private class Triplet
         {
-            private readonly int a;
-            private readonly int b;
-            private readonly int c;
+            private readonly int a, b, c;
 
             internal Triplet(int a, int b, int c)
             {

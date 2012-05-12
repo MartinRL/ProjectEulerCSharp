@@ -102,5 +102,15 @@ namespace ProjectEulerCSharp
         {
             return @this * @this;
         }
+
+        public static int ParseAsInt(this char @this)
+        {
+            return ParseAsInt(new string(@this, 1));
+        }
+
+        public static int ParseAsInt(this string @this)
+        {
+            return int.Parse(@this);
+        }
     }
 }

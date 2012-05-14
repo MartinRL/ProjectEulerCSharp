@@ -94,7 +94,7 @@ namespace ProjectEulerCSharp
 
         public static long CalculateMaxFactor(this long @this)
         {
-            return (long) Math.Sqrt(@this);
+            return (long)Math.Sqrt(@this);
         }
 
         public static bool IsPrime(this int @this)
@@ -117,7 +117,7 @@ namespace ProjectEulerCSharp
 
         public static int CalculateMaxFactor(this int @this)
         {
-            return (int) Math.Sqrt(@this);
+            return (int)Math.Sqrt(@this);
         }
 
         public static int Sqr(this int @this)
@@ -133,6 +133,16 @@ namespace ProjectEulerCSharp
         public static int ParseAsInt(this string @this)
         {
             return int.Parse(@this);
+        }
+
+        public static int Sqrt(this int @this)
+        {
+            return (int)Math.Sqrt(@this);
+        }
+
+        public static int Product(this IEnumerable<int> values)
+        {
+            return values.Aggregate((a, b) => a * b);
         }
     }
 }

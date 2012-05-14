@@ -11,7 +11,7 @@ namespace ProjectEulerCSharp
         [Fact]
         public void should_find_the_greatest_product_of_four_adjacent_numbers_in_any_direction_of_20_x_20_matrix()
         {
-            new Grid(adjacent: 4, matrixAsString: 
+            new Matrix(adjacent: 4, matrixAsString: 
 @"08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -35,12 +35,12 @@ namespace ProjectEulerCSharp
                 .CalculateGreatestAdjacentProduct().Should().Be(70600674);
         }
 
-        public class Grid
+        public class Matrix
         {
             private readonly int adjacent;
             private readonly int[,] matrix;
 
-            public Grid(int adjacent, string matrixAsString)
+            public Matrix( int adjacent, string matrixAsString )
             {
                 this.adjacent = adjacent;
                 matrix = CreateGridFrom(matrixAsString);

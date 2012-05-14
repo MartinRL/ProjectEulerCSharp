@@ -11,10 +11,32 @@ namespace ProjectEulerCSharp
             return @this.To(long.MinValue);
         }
 
+        public static IEnumerable<long> To(this int @this, long to)
+        {
+            if (@this < to)
+            {
+                while (@this <= to)
+                    yield return @this++;
+            }
+            else
+            {
+                while (@this >= to)
+                    yield return @this--;
+            }
+        }
+
         public static IEnumerable<long> To(this long @this, long to)
         {
-            while (@this >= to)
-                yield return @this--;
+            if (@this < to)
+            {
+                while (@this <= to)
+                    yield return @this++;
+            }
+            else
+            {
+                while (@this >= to)
+                    yield return @this--;
+            }
         }
 
         public static IEnumerable<int> ToMax(this int @this)

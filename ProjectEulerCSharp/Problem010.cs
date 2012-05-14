@@ -8,9 +8,12 @@ namespace ProjectEulerCSharp
     {
         [Theory]
         [InlineData(10, 17)]
-        public void should_find_the_sum_of_all_the_primes(int upperBound, int expected)
+        public void find_the_sum_of_all_the_primes(int upperBound, int expected)
         {
-            1.To(upperBound).Where(t => t.IsPrime()).Sum().Should().Be(expected);
+            1.To(upperBound)
+                .Where(t => t.IsPrime())
+                .Sum()
+                .Should().Be(expected);
         }
     }
 }

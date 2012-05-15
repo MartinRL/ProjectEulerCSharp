@@ -81,7 +81,7 @@ namespace ProjectEulerCSharp
                     .Max();
             }
 
-            public IEnumerable<int> HorizontalProducts
+            private IEnumerable<int> HorizontalProducts
             {
                 get
                 {
@@ -91,7 +91,7 @@ namespace ProjectEulerCSharp
                 }
             }
 
-            public IEnumerable<int> VerticalProducts
+            private IEnumerable<int> VerticalProducts
             {
                 get
                 {
@@ -101,7 +101,7 @@ namespace ProjectEulerCSharp
                 }
             }
 
-            public IEnumerable<int> Down45DiagonalProducts
+            private IEnumerable<int> Down45DiagonalProducts
             {
                 get
                 {
@@ -111,7 +111,7 @@ namespace ProjectEulerCSharp
                 }
             }
 
-            public IEnumerable<int> Up45DiagonalProducts
+            private IEnumerable<int> Up45DiagonalProducts
             {
                 get
                 {

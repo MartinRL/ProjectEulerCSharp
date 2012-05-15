@@ -39,7 +39,7 @@ namespace ProjectEulerCSharp
         {
             private const int adjacent = 4;
             private readonly int[,] matrix;
-                
+
             public Matrix(string matrixAsString)
             {
                 matrix = CreateGridFrom(matrixAsString);

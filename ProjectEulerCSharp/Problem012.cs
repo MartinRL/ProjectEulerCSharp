@@ -8,6 +8,7 @@ namespace ProjectEulerCSharp
     {
         [Theory]
         [InlineData(5, 28)]
+        [InlineData(500, 76576500)]
         public void should_find_first_triangle_number_for_number_of_divisors(int numberOfDivisors, int expectedTriangleNumber)
         {
             1.ToMax()

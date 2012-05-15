@@ -144,5 +144,18 @@ namespace ProjectEulerCSharp
         {
             return values.Aggregate((a, b) => a * b);
         }
+
+        /// <summary>
+        /// Spec: http://www.math.mtu.edu/mathlab/COURSES/holt/dnt/divis2.html
+        /// </summary>
+        public static int NumberOfDivisors(this int @this)
+        {
+            if (@this == 1)
+                return 1;
+
+            // 2do: subtract one if @this is a «perfect square»
+            return 1.To(@this.Sqrt())
+                       .Count(t => @this.IsEvenlyDivisibleBy(t)) * 2;
+        }
     }
 }

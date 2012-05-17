@@ -157,5 +157,13 @@ namespace ProjectEulerCSharp
             return 1.To(@this.Sqrt())
                        .Count(t => @this.IsEvenlyDivisibleBy(t)) * 2;
         }
+
+        public static void ForEach<T>(this IEnumerable<T> @this, Action<T> action)
+        {
+            foreach (var element in @this)
+            {
+                action(element);
+            }
+        }
     }
 }

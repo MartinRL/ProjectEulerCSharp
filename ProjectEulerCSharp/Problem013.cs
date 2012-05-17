@@ -125,22 +125,4 @@ namespace ProjectEulerCSharp
             return BigInteger.Parse(@this);
         }
     }
-
-    public static class Problem013Extensions
-    {
-        public static IEnumerable<string> SplitWithNewLineSeparator(this string @this)
-        {
-            return @this.Split(Environment.NewLine.ToCharArray()[0]);
-        }
-
-        public static BigInteger Sum(this IEnumerable<BigInteger> @this)
-        {
-            return @this.Aggregate((t1, t2) => t1 + t2);
-        }
-
-        public static string Truncate(this string @this, int length)
-        {
-            return @this.Substring(0, length);
-        }
-    }
 }

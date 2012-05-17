@@ -4,7 +4,7 @@ using Xunit.Extensions;
 
 namespace ProjectEulerCSharp
 {
-    public class Problem005
+    public class Problem005 : Problem
     {
         [Theory]
         [InlineData(10, 2520)]
@@ -13,11 +13,10 @@ namespace ProjectEulerCSharp
         {
             var divisors = 1.To(upperBound);
 
-            var actual = upperBound.ToMax()
-                .Where(term => term.IsEven())
-                .First(term => divisors.All(divisor => term.IsEvenlyDivisibleBy(divisor)));
-
-            actual.Should().Be(expected);
+            upperBound.ToMax()
+                .Where(IsEven)
+                .First(term => divisors.All(divisor => term.IsEvenlyDivisibleBy(divisor)))
+                .Should().Be(expected);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ProjectEulerCSharp
 {
-    public class Problem004
+    public class Problem004 : Problem
     {
         [Theory]
         [InlineData(99, 9009)]
@@ -20,11 +20,6 @@ namespace ProjectEulerCSharp
                 .Max();
 
             actualPalindromicNumber.Should().Be(expectedPalindromicNumber);
-        }
-
-        private static bool IsPalindrome(int term)
-        {
-            return term.ToString().SequenceEqual(term.ToString().Reverse());
         }
     }
 }

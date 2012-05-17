@@ -4,7 +4,7 @@ using Xunit.Extensions;
 
 namespace ProjectEulerCSharp
 {
-    public class Problem006
+    public class Problem006 : Problem
     {
         [Theory]
         [InlineData(10, 2640)]
@@ -15,7 +15,7 @@ namespace ProjectEulerCSharp
 
             var squareOfTheSums = naturalNumbers.Sum().Sqr();
 
-            var sumOfTheSquares = naturalNumbers.Select(t => t.Sqr()).Sum();
+            var sumOfTheSquares = naturalNumbers.Select(Sqr).Sum();
 
             var actual = squareOfTheSums - sumOfTheSquares;
 

@@ -135,11 +135,7 @@ namespace ProjectEulerCSharp
 
         public static BigInteger Sum(this IEnumerable<BigInteger> @this)
         {
-            BigInteger sum = 0;
-
-            @this.ForEach(bi => sum = sum + bi);
-
-            return sum;
+            return @this.Aggregate((t1, t2) => t1 + t2);
         }
 
         public static string Truncate(this string @this, int length)

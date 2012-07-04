@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using FluentAssertions;
 using Xunit;
 
 namespace ProjectEulerCSharp
@@ -16,7 +20,75 @@ namespace ProjectEulerCSharp
         {
             var collatzSequence = new CollatzSequence(13);
 
+            foreach (var t in collatzSequence)
+            {
+                Console.WriteLine(t);
+            }
+
             collatzSequence.Count().Should().Be(10);
+        }
+    }
+
+    public class CollatzSequence : IEnumerable<int>
+    {
+        private readonly int seed;
+
+        public CollatzSequence(int seed)
+        {
+            this.seed = seed;
+        }
+
+        public IEnumerator<int> GetEnumerator()
+        {
+            return new CollatzSequenceEnumerator(seed);
+        }
+
+        public class CollatzSequenceEnumerator : IEnumerator<int>
+        {
+            private int current;
+            private bool hasMoved;
+
+            public CollatzSequenceEnumerator(int current)
+            {
+                hasMoved = false;
+                this.current = current;
+            }
+
+            public void Dispose()
+            {}
+
+            public bool MoveNext()
+            {
+                if (Current == 1)
+                    return false;
+
+                if (hasMoved)
+                    current = current.IsEven() ? current / 2 : 3 * current + 1;
+
+                hasMoved = true;
+
+                return true;
+            }
+
+            public void Reset()
+            {
+                throw new NotImplementedException();
+            }
+
+            public int Current
+            {
+                get { return current; }
+            }
+
+            object IEnumerator.Current
+            {
+                get { return Current; }
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

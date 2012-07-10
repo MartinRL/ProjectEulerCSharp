@@ -19,17 +19,7 @@ namespace ProjectEulerCSharp
             for (uint i = 1; i < 1000000; i++)
             {
                 var member = i;
-                ulong chainCount = 0;
-
-                while (member != 1)
-                {
-                    if (member % 2 == 0)
-                        member = member / 2;
-                    else
-                        member = 3 * member + 1;
-
-                    chainCount++;
-                }
+                var chainCount = GetChainCount(member);
 
                 if (longestChainCount < chainCount)
                 {
@@ -40,6 +30,22 @@ namespace ProjectEulerCSharp
 
             startingNumberOfLongestChain.Should().Be(837799);
             longestChainCount.Should().Be(524);
+        }
+
+        private static ulong GetChainCount(uint member)
+        {
+            ulong chainCount = 0;
+
+            while (member != 1)
+            {
+                if (member % 2 == 0)
+                    member = member / 2;
+                else
+                    member = 3 * member + 1;
+
+                chainCount++;
+            }
+            return chainCount;
         }
     }
 }

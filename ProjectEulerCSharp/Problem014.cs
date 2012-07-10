@@ -18,8 +18,7 @@ namespace ProjectEulerCSharp
 
             for (uint i = 1; i < 1000000; i++)
             {
-                var member = i;
-                var chainCount = GetChainCount(member);
+                var chainCount = GetChainCount(i);
 
                 if (longestChainCount < chainCount)
                 {

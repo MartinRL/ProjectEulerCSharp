@@ -18,7 +18,7 @@ namespace ProjectEulerCSharp
 
             for (uint i = 1; i < 1000000; i++)
             {
-                var chainCount = GetChainCount(i);
+                var chainCount = GetChainCountFor(i);
 
                 if (longestChainCount < chainCount)
                 {
@@ -31,7 +31,7 @@ namespace ProjectEulerCSharp
             longestChainCount.Should().Be(524);
         }
 
-        private static ulong GetChainCount(uint member)
+        private static ulong GetChainCountFor(uint member)
         {
             ulong chainCount = 0;
 

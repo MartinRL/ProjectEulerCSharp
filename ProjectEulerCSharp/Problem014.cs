@@ -12,7 +12,11 @@ namespace ProjectEulerCSharp
         [Fact]
         public void should_find_the_starting_number_less_than_1000000_that_produces_the_longest_chain()
         {
-
+            1.To(1000000 - 1)
+                .Select(t => new {Term = t, Count = new CollatzSequence(t).Count})
+                .OrderByDescending(tc => tc.Count)
+                .First().Term
+                .Should().Be(0);
         }
 
         [Fact]
@@ -20,12 +24,7 @@ namespace ProjectEulerCSharp
         {
             var collatzSequence = new CollatzSequence(13);
 
-            foreach (var t in collatzSequence)
-            {
-                Console.WriteLine(t);
-            }
-
-            collatzSequence.Count().Should().Be(10);
+            collatzSequence.Count.Should().Be(10);
         }
     }
 
@@ -38,17 +37,32 @@ namespace ProjectEulerCSharp
             this.seed = seed;
         }
 
-        public IEnumerator<int> GetEnumerator()
+        public ulong Count
         {
-            return new CollatzSequenceEnumerator(seed);
+            get
+            {
+                ulong count = 0;
+                var enumerator = GetEnumerator();
+                while (enumerator.MoveNext())
+                {
+                    count++;
+                }
+
+                return count;
+            }
         }
 
-        public class CollatzSequenceEnumerator : IEnumerator<int>
+        public IEnumerator<int> GetEnumerator()
+        {
+            return new Enumerator(seed);
+        }
+
+        public class Enumerator : IEnumerator<int>
         {
             private int current;
             private bool hasMoved;
 
-            public CollatzSequenceEnumerator(int current)
+            public Enumerator(int current)
             {
                 hasMoved = false;
                 this.current = current;

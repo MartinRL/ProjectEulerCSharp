@@ -27,7 +27,7 @@ namespace ProjectEulerCSharp
             if (startingNumber == 1)
                 return count;
 
-            return GetChainCountFor(startingNumber % 2 == 0 ? startingNumber / 2 : 3 * startingNumber + 1, ++count);
+            return GetChainCountFor(startingNumber.IsEven() ? startingNumber / 2 : 3 * startingNumber + 1, ++count);
         }
     }
 }

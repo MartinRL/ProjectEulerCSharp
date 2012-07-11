@@ -13,34 +13,25 @@ namespace ProjectEulerCSharp
         [Fact]
         public void should_find_the_starting_number_less_than_1000000_that_produces_the_longest_chain()
         {
-            uint startingNumberOfLongestChain = 0;
-            ulong longestChainCount = 0;
+            var result = 1.ToUint(999999)
+                .Select(t => new {Term = t, Count = GetChainCountFor(t)})
+                .OrderByDescending(tc => tc.Count)
+                .First();
 
-            for (uint i = 1; i < 1000000; i++)
-            {
-                var chainCount = GetChainCountFor(i);
-
-                if (longestChainCount < chainCount)
-                {
-                    longestChainCount = chainCount;
-                    startingNumberOfLongestChain = i;
-                }
-            }
-
-            startingNumberOfLongestChain.Should().Be(837799);
-            longestChainCount.Should().Be(524);
+            result.Term.Should().Be(837799);
+            result.Count.Should().Be(524);
         }
 
-        private static ulong GetChainCountFor(uint member)
+        private static ulong GetChainCountFor(uint startingNumber)
         {
             ulong chainCount = 0;
 
-            while (member != 1)
+            while (startingNumber != 1)
             {
-                if (member % 2 == 0)
-                    member = member / 2;
+                if (startingNumber % 2 == 0)
+                    startingNumber = startingNumber / 2;
                 else
-                    member = 3 * member + 1;
+                    startingNumber = 3 * startingNumber + 1;
 
                 chainCount++;
             }

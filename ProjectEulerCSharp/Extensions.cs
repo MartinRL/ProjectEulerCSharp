@@ -7,6 +7,14 @@ namespace ProjectEulerCSharp
 {
     public static class IEnumerableExtensions
     {
+        public static void ForEach<T>( this IEnumerable<T> @this, Action<T> action )
+        {
+            foreach (var element in @this)
+            {
+                action(element);
+            }
+        }
+
         public static IEnumerable<int> TakeWhileLessThan(this IEnumerable<int> @this, int upperBound)
         {
             return @this.TakeWhile(term => term <= upperBound);
@@ -47,6 +55,12 @@ namespace ProjectEulerCSharp
         public static IEnumerable<int> To(this int @this, int to)
         {
             return Enumerable.Range(@this, to - @this + 1);
+        }
+
+        public static IEnumerable<uint> ToUint(this int @this, uint to)
+        {
+            for (var i = (uint)@this; i <= to; i++)
+                yield return i;
         }
 
         public static bool IsEven(this int @this)

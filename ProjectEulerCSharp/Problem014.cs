@@ -14,11 +14,11 @@ namespace ProjectEulerCSharp
         public void should_find_the_starting_number_less_than_1000000_that_produces_the_longest_chain()
         {
             var result = 2.ToUint(999999)
-                .Select(t => new {Term = t, Count = GetChainCountFor(t)})
+                .Select(t => new {StartingNumber = t, Count = GetChainCountFor(t)})
                 .OrderByDescending(tc => tc.Count)
                 .First();
 
-            result.Term.Should().Be(837799);
+            result.StartingNumber.Should().Be(837799);
             result.Count.Should().Be(524);
         }
 

@@ -5,6 +5,14 @@ using System.Numerics;
 
 namespace ProjectEulerCSharp
 {
+    public static class CharExtensions
+    {
+        public static byte ParseAsByte( this char @this )
+        {
+            return byte.Parse( new string( new[] { @this } ) );
+        }
+    }
+
     public static class IEnumerableExtensions
     {
         public static void ForEach<T>( this IEnumerable<T> @this, Action<T> action )
@@ -28,6 +36,20 @@ namespace ProjectEulerCSharp
         public static int Product(this IEnumerable<int> values)
         {
             return values.Aggregate((a, b) => a * b);
+        }
+
+        public static IEnumerable<byte> ToByteSequence(this IEnumerable<char> @this)
+        {
+            return @this.Select(c => c.ParseAsByte());
+        }
+
+        public static uint Sum(this IEnumerable<byte> @this)
+        {
+            uint sum = 0;
+
+            @this.ForEach(b => sum = sum + b);
+
+            return sum;
         }
     }
 

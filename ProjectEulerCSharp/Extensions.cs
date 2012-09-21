@@ -159,5 +159,21 @@ namespace ProjectEulerCSharp
         {
             return Int32.Parse(@this);
         }
+
+        /// <summary>
+        /// http://mathworld.wolfram.com/BinomialCoefficient.html
+        /// </summary>
+        public static BigInteger Choose(this int n, int k)
+        {
+            return n.BigFactorial() / ((n - k).BigFactorial() * k.BigFactorial());
+        }
+
+        public static BigInteger BigFactorial(this int @this)
+        {
+            if (@this == 1)
+                return @this;
+
+            return @this * BigFactorial(@this - 1);
+        }
     }
 }

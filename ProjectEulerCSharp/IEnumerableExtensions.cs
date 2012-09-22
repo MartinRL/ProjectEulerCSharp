@@ -43,5 +43,10 @@ namespace ProjectEulerCSharp
 
             return sum;
         }
+
+        public static string JoinAsString(this IEnumerable<object> @this, string separator = "")
+        {
+            return string.Join(separator, @this);
+        }
     }
 }

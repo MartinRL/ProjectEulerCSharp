@@ -94,5 +94,80 @@ namespace ProjectEulerCSharp
 
             return @this * BigFactorial(@this - 1);
         }
+
+        public static int Pow(this int @this, int power)
+        {
+            return (int)Math.Pow(@this, power);
+        }
+
+        public static string AsWord(this int @this)
+        {
+            const string HUNDRED = "hundred";
+            const string ONE = "one";
+
+            var thisAsString = @this.ToString();
+
+            if (@this < 100 && ((NumberAsWord)@this).ToString() != thisAsString)
+                return ((NumberAsWord)@this).ToString();
+
+            if (@this > 20 && @this < 100)
+                return thisAsString.ToCharArray().Reverse()
+                    .Select((c, i) => c.ParseAsInt() * 10.Pow(i)).Reverse()
+                    .Select(t => ((NumberAsWord)t).ToString())
+                    .JoinAsString(" ");
+
+            if (@this > 100 && @this < 1000)
+            {
+                var numberOfHundreds = thisAsString.ToCharArray().First().ParseAsInt();
+
+                var thisMinusTheHundreds = @this - numberOfHundreds * 100;
+
+                if (thisMinusTheHundreds == 0)
+                    return ((NumberAsWord)numberOfHundreds) + " " + HUNDRED;
+
+                return ((NumberAsWord)numberOfHundreds)
+                       + " " + HUNDRED + " and "
+                       + AsWord(thisMinusTheHundreds);
+            }
+
+            if (@this == 100)
+                return ONE + " " + HUNDRED;
+
+            if (@this == 1000)
+                return ONE + " thousand";
+
+            throw new NotSupportedException("{0} is unsupported as of now".FormatWith(thisAsString));
+        }
+
+        internal enum NumberAsWord
+        {
+            one = 1,
+            two = 2,
+            three = 3,
+            four = 4,
+            five = 5,
+            six = 6,
+            seven = 7,
+            eight = 8,
+            nine = 9,
+            ten = 10,
+            eleven = 11,
+            twelve = 12,
+            thirteen = 13,
+            fourteen = 14,
+            fifteen = 15,
+            sixteen = 16,
+            seventeen = 17,
+            eighteen = 18,
+            nineteen = 19,
+            twenty = 20,
+            thirty = 30,
+            forty = 40,
+            fifty = 50,
+            sixty = 60,
+            seventy = 70,
+            eighty = 80,
+            ninety = 90
+        }
     }
 }

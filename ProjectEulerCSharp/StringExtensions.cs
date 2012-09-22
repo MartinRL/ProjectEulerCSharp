@@ -18,7 +18,17 @@ namespace ProjectEulerCSharp
 
         public static int ParseAsInt(this string @this)
         {
-            return Int32.Parse(@this);
+            return int.Parse(@this);
+        }
+
+        public static string FormatWith(this string @this, params object[] args)
+        {
+            return string.Format(@this, args);
+        }
+
+        public static string RemoveAll(this string @this, string remove)
+        {
+            return @this.Replace(remove, string.Empty);
         }
     }
 }

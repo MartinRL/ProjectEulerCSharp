@@ -38,7 +38,7 @@ namespace ProjectEulerCSharp
             return values.Aggregate((a, b) => a * b);
         }
 
-        public static IEnumerable<byte> ToByteSequence(this IEnumerable<char> @this)
+        public static IEnumerable<byte> ToBytes(this IEnumerable<char> @this)
         {
             return @this.Select(c => c.ParseAsByte());
         }

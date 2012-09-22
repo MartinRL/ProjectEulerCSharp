@@ -13,7 +13,7 @@ namespace ProjectEulerCSharp
 
             twoRaisedToThePowerOf1000
                     .ToString()
-                    .ToByteSequence()
+                    .ToBytes()
                     .Sum()
                     .Should().Be(1366);
         }
